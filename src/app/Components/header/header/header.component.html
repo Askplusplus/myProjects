@@ -1,7 +1,16 @@
-<mat-sidenav-container color="primary">
-    <mat-sidenav>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <mat-toolbar color="warn">TODO APP</mat-toolbar>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+
+<mat-toolbar color="warn" class="toolbarCss">
+  <div class="app-title">Todo App</div>
+  <div class="nav-links">
+      <mat-nav-list class="mb-2">
+        <span>
+            <a href="" routerLink="/home">Home</a>
+        </span>
+        <span>
+            <a href="" routerLink="/tasklist">Tasks</a>
+        </span>
+      </mat-nav-list>
+  </div>
+</mat-toolbar>
+<router-outlet></router-outlet>
+

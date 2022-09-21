@@ -1,0 +1,17 @@
+.toolbarCss{
+    justify-content: space-between;
+    box-shadow: 0 5px 10px #ccc;
+}
+span{
+    padding-right: 1rem;
+}
+span:hover{
+    text-decoration: underline;
+}
+.nav-links{
+    margin-right: 30px;
+}
+.app-title{
+    font-size: 25px;
+    font-weight: bold;
+}

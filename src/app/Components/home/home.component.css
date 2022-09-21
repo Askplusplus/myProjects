@@ -1,0 +1,14 @@
+.container-todo{
+    display: flex;
+    justify-content: center;
+}
+.form-field-width{
+    width: 300px;
+}
+.btn-todo{
+    margin: 5px;
+    width: 80px;
+}
+.title-color{
+    color: #F44336;
+}
