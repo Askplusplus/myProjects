@@ -1,3 +1,7 @@
+.container-fluid{
+    background-color: #eee;
+    height: 88%;
+}
 .container-todo{
     display: flex;
     justify-content: center;

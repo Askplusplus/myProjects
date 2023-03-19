@@ -7,7 +7,9 @@
             <a href="" routerLink="/home">Home</a>
         </span>
         <span>
-            <a href="" routerLink="/tasklist">Tasks</a>
+            <a href="" routerLink="/tasklist" [matBadge]="taskSize" matBadgeColor="primary" matBadgePosition="after" [matBadgeHidden]="taskSize==0">
+               Tasks
+            </a>
         </span>
       </mat-nav-list>
   </div>

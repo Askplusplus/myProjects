@@ -1,1 +1,31 @@
-<p>task-list works!</p>
+<div class="container-fluid">
+  <div class="title">
+    <h4 class="mt-2">Task List</h4>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="container">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z3 mt-3" multiTemplateDataRows>
+      <!--  Iterando sobre array de columnas y sus contenidos-->
+      <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay;">
+        <mat-header-cell *matHeaderCellDef>{{column}}</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element[column]}}</mat-cell>
+      </ng-container>
+
+      <!--  Definiendo todas las columnas de forma individual-->
+      <!--  <ng-container matColumnDef="Name">-->
+      <!--    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>-->
+      <!--    <mat-cell *matCellDef="let element">{{element.Name}}</mat-cell>-->
+      <!--  </ng-container>-->
+
+      <!--  <ng-container matColumnDef="Description">-->
+      <!--    <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>-->
+      <!--    <mat-cell *matCellDef="let element">{{element.Description}}</mat-cell>-->
+      <!--  </ng-container>-->
+
+      <!--  Definiendo Headers Rows-->
+      <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+      <mat-row *matRowDef="let element; columns: columnsToDisplay;"></mat-row>
+    </mat-table>
+  </div>
+</div>
+

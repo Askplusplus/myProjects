@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { TaskManagerService } from "../../Services/task-manager.service";
 
-type Task = {taskName: string, taskDes: string}
+type Task = {No: number,Name: string, Description: string}
+
 
 @Component({
   selector: 'app-home',
@@ -8,24 +11,33 @@ type Task = {taskName: string, taskDes: string}
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  taskName: string = '';
-  taskDes: string = '';
-  task: Task = {taskName: '', taskDes: ''};
-  constructor() { }
+  task: Task = {No: 0,Name: '', Description: ''};
+
+  constructor(private snackBar: MatSnackBar,
+              private taskService: TaskManagerService) {
+  }
 
   ngOnInit(): void {
+    this.onTakeLength();
   }
-  onTipingName(event: any): void{
-    this.taskName = event.target.value;
+
+  onTakeLength(){
+    this.task.No = this.taskService.getTaskLength();
+    console.log(this.task.No)
   }
-  onTipingDes(event: any): void{
-    this.taskDes = event.target.value;
-  }
-  onAddTask(){
-    this.task.taskName = this.taskName
-    this.task.taskDes = this.taskDes
-    if(this.task != null){
-      console.log('Ahora se puede guardar el objeto obtenido...')
+
+  onAddTask(Input: HTMLInputElement, TextArea: HTMLTextAreaElement) {
+    this.task.Name= Input.value;
+    this.task.Description = TextArea.value;
+    this.task.No = this.task.No + 1;
+    if (this.task.Name != '' && this.task.Description != '') {
+      console.log(this.task)
+      this.taskService.setTask(this.task)
+      Input.value = '';
+      TextArea.value = '';
+      this.snackBar.open('Task Added', '', {
+        duration: 2 * 1000
+      })
     }
   }
 }
